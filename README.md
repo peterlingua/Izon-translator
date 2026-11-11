@@ -143,3 +143,23 @@ The app can be installed on a phone's home screen. It then opens full screen, wi
 4. Open the new icon. The app runs full screen. Translation needs an internet connection because the translator runs on the server.
 
 A native Android or iOS app would need Android Studio or Xcode and an app-store account. This web-app version avoids both.
+
+
+## Streamlit version (current deployment)
+
+The interface is now a Streamlit app (`app.py`). It uses the same translator and lexicon as the earlier web page, so results are identical.
+
+Run locally:
+
+```
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+Then open the address Streamlit prints (usually `http://localhost:8501`).
+
+On Render, use these settings for a Web Service:
+- Build command: `pip install -r requirements.txt`
+- Start command: `streamlit run app.py --server.address 0.0.0.0 --server.port $PORT --server.headless true`
+
+Streamlit apps are responsive, so the page works in a phone browser. Streamlit does not add a home-screen install icon by itself; users can open the link on the phone and bookmark it.

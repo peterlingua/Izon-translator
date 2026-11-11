@@ -92,3 +92,10 @@ The translator remains a research prototype. Exact sentence pairs can translate 
 - The page declares the manifest, theme colour and iOS home-screen tags, uses 16px input text to stop iOS zooming, and sets 44px minimum touch targets.
 - Translation still runs on the server, so the app needs an internet connection; the shell can be reopened offline.
 - README has steps to install from Chrome (Android) and Safari (iPhone).
+
+## Streamlit interface
+
+- Added `app.py`, a Streamlit front end with two tabs: sentence translation (both directions) and word lookup. It calls the same `translate` and lexicon functions as `web_app.py`.
+- Flagged outputs (unsupported or unknown) appear as warnings, not as translations.
+- `requirements.txt` now pins `streamlit==1.67.0`. `Procfile` and `Dockerfile` start the Streamlit app. The Render build command is `pip install -r requirements.txt`.
+- `web_app.py` is kept but is no longer the deployment target.

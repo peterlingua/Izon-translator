@@ -1,1 +1,1 @@
-# Standard library only. No packages to install.
+streamlit==1.67.0
