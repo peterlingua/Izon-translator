@@ -1,0 +1,48 @@
+﻿category,feature,marker,base_example,form_example,english_meaning,source,notes
+noun,definite_plural,-mo,akasi,akasimo,the chairs,User-supplied ijaw rules (1).docx,Source explicitly describes this as definite plural.
+noun,indefinite_plural,-ama,ekpeti,ekpeti-ama,boxes,User-supplied ijaw rules (1).docx,Hyphen retained as supplied.
+noun,plural,-otu,ogoni,ogoni-otu,visitors,User-supplied ijaw rules (1).docx,Source gives base as ogoni.
+noun,definite_plural,-mo,Kimiowei,kimimo,the men,User-supplied ijaw rules (1).docx,Allomorphic/irregular form in source; not derived by ordinary suffix concatenation.
+noun,definite_plural,-amini,owei,oweiamini,the men,User-supplied ijaw rules (1).docx,Source gives owei (man).
+noun,female_singular,-abàu,ere,ereabàu,girl/miss,User-supplied ijaw rules (1).docx,Source gender/number terminology retained.
+noun,female_title,-arau,ere,erearau,Mrs/madam,User-supplied ijaw rules (1).docx,Source title gloss retained.
+noun,definite_plural,-amini,ere,ereamini,the women,User-supplied ijaw rules (1).docx,One of two source-supplied variants.
+noun,definite_plural,-minimọ,ere,ereaminimọ,the women,User-supplied ijaw rules (1).docx,One of two source-supplied variants.
+adjective,comparative,-dẹịn,zau,zau-dẹịn,smaller,User-supplied ijaw rules (1).docx,Hyphen appears in the source for comparative forms.
+adjective,superlative,-fa,zau,zau-fa,smallest,User-supplied ijaw rules (1).docx,Hyphen appears in the source for superlative forms.
+adjective,very,-kami,zau,zau-kami,very small,User-supplied ijaw rules (1).docx,Source uses mixed hyphenation across roots.
+adjective,too,-bọwẹmi,zau,zaubọwẹmi,too small,User-supplied ijaw rules (1).docx,No hyphen in supplied example.
+adjective,negative,-agha / -kumo,zau,zaugha / zaukumo,not small,User-supplied ijaw rules (1).docx,Original table is malformed; it lists alternative endings.
+verb,present,-nimi,Bii,biinimi,ask,User-supplied ijaw rules (1).docx,Source labels this present tense.
+verb,past,-mi,Bii,biịmi,asked,User-supplied ijaw rules (1).docx,Source example.
+verb,progressive,-yemi,Bii,biịyemi,asking,User-supplied ijaw rules (1).docx,Source example.
+verb,present_perfect,-dọụ,Bii,biịdọụ,asked,User-supplied ijaw rules (1).docx,Source label is present perfect.
+verb,future,-nghimi,Gẹẹ,gẹẹnghimi,will come (as glossed),User-supplied ijaw rules (1).docx,Source gloss does not align obviously with base “write”; verify.
+verb,future,-nghimi,Mu,munghimi,will go,User-supplied ijaw rules (1).docx,Source example.
+verb,past_progressive,-timimi,Gẹẹ,gẹẹtimimi,was writing,User-supplied ijaw rules (1).docx,Source example.
+verb,negative,-agha,Mu,muagha,not go,User-supplied ijaw rules (1).docx,Source example.
+pronoun,subject_first_singular,,Àri,Àri,I,User-supplied ijaw rules (1).docx,Exact form preserved from the pronoun table.
+pronoun,subject_first_plural,,Woni,Woni,we,User-supplied ijaw rules (1).docx,Exact form preserved from the pronoun table.
+pronoun,subject_second_singular,,Ári,Ári,you,User-supplied ijaw rules (1).docx,Tone marks distinguish from first-person form in the supplied table.
+pronoun,subject_second_plural,,Ọ́mịnị,Ọ́mịnị,you (plural),User-supplied ijaw rules (1).docx,Exact form preserved from the pronoun table.
+pronoun,subject_third_singular_masc,,Eri,Eri,he,User-supplied ijaw rules (1).docx,Exact form preserved from the pronoun table.
+pronoun,subject_third_singular_fem,,arau,arau,she,User-supplied ijaw rules (1).docx,Exact form preserved from the pronoun table.
+pronoun,subject_third_plural,,Ọ̀mịnị,Ọ̀mịnị,they,User-supplied ijaw rules (1).docx,Exact form preserved from the pronoun table.
+pronoun,object_first_singular,,Ì,Ì,me,User-supplied ijaw rules (1).docx,Exact form preserved from the pronoun table.
+pronoun,object_first_plural,,wó,wó,us,User-supplied ijaw rules (1).docx,Exact form preserved from the pronoun table.
+pronoun,object_second_singular,,Í,Í,you,User-supplied ijaw rules (1).docx,Exact form preserved from the pronoun table.
+pronoun,object_second_plural,,ó,ó,you (plural),User-supplied ijaw rules (1).docx,Exact form preserved from the pronoun table.
+pronoun,object_third_singular_masc,,Wò / ù,Wò / ù,him,User-supplied ijaw rules (1).docx,The source lists alternatives.
+pronoun,object_third_singular_fem,,árà / á,árà / á,her,User-supplied ijaw rules (1).docx,The source lists alternatives.
+pronoun,object_third_plural,,Ò,Ò,them,User-supplied ijaw rules (1).docx,Exact form preserved from the pronoun table.
+pronoun,genitive_first_singular,,Ìnè,Ìnè,my,User-supplied ijaw rules (1).docx,Exact form preserved from the pronoun table.
+pronoun,genitive_first_plural,,Wó,Wó,our,User-supplied ijaw rules (1).docx,Exact form preserved from the pronoun table.
+pronoun,genitive_second_singular,,Ínè,Ínè,your,User-supplied ijaw rules (1).docx,Exact form preserved from the pronoun table.
+pronoun,genitive_second_plural,,ínè,ínè,your (plural),User-supplied ijaw rules (1).docx,Case distinction as listed in the source.
+pronoun,genitive_third_plural,,oro,oro,their,User-supplied ijaw rules (1).docx,Exact form preserved from the pronoun table.
+pronoun,possessive_mine,,Ìnei,Ìnei,mine,User-supplied ijaw rules (1).docx,The source also lists Ìnei for yours; ambiguity preserved.
+pronoun,possessive_ours,,Woi,Woi,ours,User-supplied ijaw rules (1).docx,Exact form preserved from the pronoun table.
+pronoun,possessive_yours_plural,,ọréi,ọréi,yours,User-supplied ijaw rules (1).docx,Exact form preserved from the pronoun table.
+pronoun,reflexive_first_singular,,ìnèọngọ,ìnèọngọ,myself,User-supplied ijaw rules (1).docx,Only forms explicitly supplied are listed.
+pronoun,reflexive_third_singular_fem,,áràọngọ,áràọngọ,herself,User-supplied ijaw rules (1).docx,Only forms explicitly supplied are listed.
+pronoun,reflexive_third_singular_masc,,wòọngọ,wòọngọ,himself,User-supplied ijaw rules (1).docx,Only forms explicitly supplied are listed.

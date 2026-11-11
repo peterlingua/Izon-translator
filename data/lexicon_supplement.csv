@@ -1,0 +1,36 @@
+english,izon,part_of_speech,source,status,notes
+uncle,da ụ́,n.,izon_dictionary_a_z.csv,dictionary-attested,father's brother (paternal uncle); maternal uncle not found in dictionary or online
+brother,bịnaowéi,n.,izon_dictionary_a_z.csv,dictionary-attested,male relative; glossed 'brother' (bịná entry)
+sister,bịnaará ụ,n.,izon_dictionary_a_z.csv,dictionary-attested,female relative; glossed 'sister' (bịná entry)
+elder brother,bọ́lọụ owéi,n.,izon_dictionary_a_z.csv,dictionary-attested,owéi entry
+elder sister,bọ́lọụ ara ụ,n.,izon_dictionary_a_z.csv,dictionary-attested,(ara ụ) entry
+grandmother,kosuyénghì,n.,izon_dictionary_a_z.csv,dictionary-attested,kosuyénghì entry; cf. opuyenghí great-grandmother
+grandfather,kosudá ụ̀,n.,izon_dictionary_a_z.csv,dictionary-attested,already present; kept for precedence
+widow,dúu-ere,n.,izon_dictionary_a_z.csv,dictionary-attested,woman widowed; dúu-ere entry
+orphan,órie tọ̀bọụ́,n.,izon_dictionary_a_z.csv,dictionary-attested,órie entry
+family,bịna bará,n.,izon_dictionary_a_z.csv,dictionary-attested,members of the same family
+friend,ikiá,n.,izon_dictionary_a_z.csv,dictionary-attested,ikiá friend(ship) as cross-referenced in the Ikibiri entry
+male friend,ikia-owéi,n.,izon_dictionary_a_z.csv,dictionary-attested,ikia-owéi entry
+female friend,ikia-ará ụ,n.,izon_dictionary_a_z.csv,dictionary-attested,ikia-ará ụ entry
+son-in-law,fúo-owèi,n.,izon_dictionary_a_z.csv,dictionary-attested,fúo entry; same form used for father-in-law
+father-in-law,fúo-owèi,n.,izon_dictionary_a_z.csv,dictionary-attested,fúo entry; same form used for son-in-law
+sister-in-law,dó-àra ụ,n.,izon_dictionary_a_z.csv,dictionary-attested-unconfirmed,dictionary editors mark this gloss as needing checking
+elderly person,kósuk ịmị,n.,izon_dictionary_a_z.csv,dictionary-attested,kósuk ịmị entry
+old man,kósuk ịmị,n.,izon_dictionary_a_z.csv,dictionary-attested,used in dictionary example about convincing an old man
+man,kìmí,n.,izon_owner_corpus,corpus-attested,many owner corpus sentences use kìmí for man
+woman,ìyó,n.,izon_owner_corpus,corpus-attested,owner corpus: the big woman is coming uses ìyó
+wife,éré,n.,izon_owner_corpus,corpus-attested,owner corpus: the wife praised him uses éré; dictionary gives ta(á) for wife
+pot,blé,n.,izon_owner_corpus,corpus-attested,owner corpus: opening the pot; dictionary also has b́l
+shirt,bírí,n.,izon_owner_corpus,corpus-attested,owner corpus: give me a shirt
+farm,ódùmú,n.,izon_owner_corpus,corpus-attested,owner corpus: going to the farm
+plantain,beribaá,n.,izon_dictionary_a_z.csv,dictionary-attested,beribaá entry
+evening,buború,n.,izon_dictionary_a_z.csv,dictionary-attested,late afternoon and early evening
+song,dúma,n.,izon_dictionary_a_z.csv,dictionary-attested,dúma song hymn entry
+this,Bèí,det.,izon_owner_corpus,corpus-attested,default before masculine nouns (bèí kìmí); demonstratives agree with noun class
+that,Ú,det.,izon_owner_corpus,corpus-attested,default before masculine nouns (Ú béì kìmí); feminine nouns take Ú má
+good,ébí,adj.,izon_owner_corpus,corpus-attested,owner corpus: the good child; dictionary ebií
+bad,séi,adj.,izon_owner_corpus,corpus-attested,owner corpus; dictionary seí be bad evil
+old,elému,adj.,izon_dictionary_a_z.csv,dictionary-attested,dictionary gloss be old be aged; adjective use inferred from gloss
+new,ayá,adj.,izon_dictionary_a_z.csv,dictionary-attested,dictionary gloss be new; adjective use inferred from gloss
+long,ịn,adj.,izon_dictionary_a_z.csv,dictionary-attested,dictionary gloss be long tall
+tall,tị́,adj.,izon_dictionary_a_z.csv,dictionary-attested,dictionary example Kị́mị t ịmò the man is tall
