@@ -20,15 +20,18 @@ HOST = os.environ.get("HOST", "0.0.0.0" if DEPLOYED else "127.0.0.1")
 PORT = int(os.environ.get("PORT", "8000"))
 
 PAGE = r"""<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Kolokuma Izon ↔ English Translator</title>
+<link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#203b70">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Izon Translator">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
 <style>
 :root{font-family:Segoe UI,Arial,sans-serif;color:#172033;background:#f3f6fb}
 *{box-sizing:border-box}body{margin:0;padding:28px 14px}.wrap{max-width:850px;margin:auto}
 header{text-align:center;margin:12px 0 26px}h1{font-size:clamp(1.5rem,4vw,2.3rem);margin-bottom:8px}
 .sub{color:#596579}.card{background:white;border:1px solid #dfe5ef;border-radius:18px;padding:22px;box-shadow:0 10px 28px #1720330c}
 .controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:16px}
-select,textarea,button{font:inherit;border-radius:10px;border:1px solid #cbd5e1;padding:12px}
+select,textarea,button{font:inherit;font-size:16px;border-radius:10px;border:1px solid #cbd5e1;padding:12px;min-height:44px}
 select{background:white}textarea{width:100%;min-height:145px;resize:vertical;line-height:1.5}
 button{cursor:pointer;background:#203b70;color:white;border-color:#203b70;font-weight:600}
 button.secondary{background:white;color:#203b70}
@@ -54,13 +57,62 @@ button.secondary{background:white;color:#203b70}
 </form>
 <div class="note"><strong>Research note:</strong> This is a rule-based prototype, not a complete production translator. It composes some unseen sentences from reusable grammar patterns, but only for patterns implemented in the code. Unsupported question structures are marked rather than guessed. Generated Izon forms need review by a fluent Kolokuma speaker; words the system cannot recognize may be marked as unknown.</div>
 </section><div class="footer">Runs locally on your computer. No account or internet connection is required.</div>
-</main></body></html>"""
+</main><script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js")}</script></body></html>"""
 
 def render(source="", result="", direction="english_to_izon"):
     page = PAGE.replace("{{SOURCE}}", html.escape(source)).replace("{{RESULT}}", html.escape(result))
     page = page.replace("{{EN_SELECTED}}", "selected" if direction == "english_to_izon" else "")
     page = page.replace("{{IZ_SELECTED}}", "selected" if direction == "izon_to_english" else "")
     return page.encode("utf-8")
+
+import struct
+import zlib
+
+
+def make_icon_png(size: int) -> bytes:
+    """Draw a solid app icon with two white bars (a translation arrow pair)."""
+    blue, white = (32, 59, 112), (255, 255, 255)
+    bar = max(2, int(size * 0.06))
+    rows = []
+    for y in range(size):
+        row = bytearray([0])  # PNG filter byte
+        for x in range(size):
+            in_bar_x = 0.2 * size <= x <= 0.8 * size
+            near_bar = any(abs(y - int(size * f)) < bar / 2 + 0.5 for f in (0.4, 0.6))
+            color = white if (in_bar_x and near_bar) else blue
+            row.extend(color)
+        rows.append(bytes(row))
+    raw = b"".join(rows)
+
+    def chunk(kind, data):
+        return struct.pack(">I", len(data)) + kind + data + struct.pack(">I", zlib.crc32(kind + data) & 0xFFFFFFFF)
+
+    header = struct.pack(">IIBBBBB", size, size, 8, 2, 0, 0, 0)
+    return (b"\x89PNG\r\n\x1a\n" + chunk(b"IHDR", header)
+            + chunk(b"IDAT", zlib.compress(raw, 9)) + chunk(b"IEND", b""))
+
+
+SERVICE_WORKER = """
+const CACHE = 'izon-translator-v1';
+const SHELL = ['/'];
+self.addEventListener('install', e => {
+  e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)).then(() => self.skipWaiting()));
+});
+self.addEventListener('activate', e => {
+  e.waitUntil(self.clients.claim());
+});
+self.addEventListener('fetch', e => {
+  if (e.request.method !== 'GET') return;  // translations are always sent to the server
+  e.respondWith(
+    fetch(e.request).then(r => {
+      const copy = r.clone();
+      caches.open(CACHE).then(c => c.put('/', copy)).catch(() => {});
+      return r;
+    }).catch(() => caches.match('/'))
+  );
+});
+"""
+
 
 class Handler(BaseHTTPRequestHandler):
     def _send_bytes(self, payload, content_type, status=200):
@@ -113,6 +165,29 @@ class Handler(BaseHTTPRequestHandler):
                 ]})
             except Exception as exc:
                 self._send_json({"error": str(exc)}, 500)
+            return
+        if parsed.path == "/manifest.webmanifest":
+            manifest = {
+                "name": "Kolokuma Izon ↔ English Translator",
+                "short_name": "Izon Translator",
+                "start_url": "/", "scope": "/", "display": "standalone",
+                "background_color": "#f3f6fb", "theme_color": "#203b70",
+                "icons": [
+                    {"src": "/icon-192.png", "sizes": "192x192", "type": "image/png"},
+                    {"src": "/icon-512.png", "sizes": "512x512", "type": "image/png"},
+                ],
+            }
+            self._send_bytes(json.dumps(manifest, ensure_ascii=False).encode("utf-8"),
+                             "application/manifest+json; charset=utf-8")
+            return
+        if parsed.path in ("/icon-192.png", "/icon-512.png", "/apple-touch-icon.png"):
+            size = {"/icon-192.png": 192, "/icon-512.png": 512, "/apple-touch-icon.png": 180}[parsed.path]
+            self._send_bytes(make_icon_png(size), "image/png")
+            return
+        if parsed.path == "/sw.js":
+            # Minimal service worker: makes the app installable and keeps the
+            # shell available when offline. Translation itself needs the server.
+            self._send_bytes(SERVICE_WORKER.encode("utf-8"), "application/javascript; charset=utf-8")
             return
         # Prevent a browser from reusing an older rendered page after the server restarts.
         self._send_bytes(render(), "text/html; charset=utf-8")

@@ -132,3 +132,14 @@ The app runs on your computer at `127.0.0.1`, which a phone cannot reach. To get
 The app reads `PORT` and `HOST` from the environment. On a host it listens on all interfaces and does not open a browser. Locally, nothing changes: `python web_app.py` still opens `http://127.0.0.1:8000/`.
 
 Files added for deployment: `Procfile`, `Dockerfile`, `.dockerignore`, `requirements.txt`.
+
+## Use it as a phone app (installable web app)
+
+The app can be installed on a phone's home screen. It then opens full screen, with its own icon, like an app. This is a Progressive Web App: it uses the same hosted link, so there is nothing to publish to an app store.
+
+1. Deploy the app as described above and open the link in the phone's browser (Chrome on Android, Safari on iPhone).
+2. Android (Chrome): tap the menu (⋮) and choose **Install app** or **Add to Home screen**.
+3. iPhone (Safari): tap the Share button and choose **Add to Home Screen**.
+4. Open the new icon. The app runs full screen. Translation needs an internet connection because the translator runs on the server.
+
+A native Android or iOS app would need Android Studio or Xcode and an app-store account. This web-app version avoids both.

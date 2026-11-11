@@ -85,3 +85,10 @@ The translator remains a research prototype. Exact sentence pairs can translate 
 - Unsupported sentences now name the construction and the reason, instead of a generic message. Outputs containing [UNKNOWN] from a modal or infinitive are no longer returned as-is.
 - Added `tests/test_verb_rules.py`. Existing tests and the exact-pair evaluator still pass.
 - Open for speaker validation: whether simple present takes -nimi (USR-TAM-001 says yes, but corpus sentences such as "The girl eats yam" show none); the perfect and future labels; modal and infinitive forms.
+
+## Installable mobile web app
+
+- `web_app.py` serves a web app manifest (`/manifest.webmanifest`), home-screen icons (`/icon-192.png`, `/icon-512.png`, `/apple-touch-icon.png`, generated in code), and a minimal service worker (`/sw.js`).
+- The page declares the manifest, theme colour and iOS home-screen tags, uses 16px input text to stop iOS zooming, and sets 44px minimum touch targets.
+- Translation still runs on the server, so the app needs an internet connection; the shell can be reopened offline.
+- README has steps to install from Chrome (Android) and Safari (iPhone).
